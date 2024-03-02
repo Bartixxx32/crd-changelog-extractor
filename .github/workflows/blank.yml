@@ -17,7 +17,7 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
-      - name: Mkdir temp
+      - name: Make temp directory
         run: mkdir temp
         working-directory: ${{ github.workspace }}
 
@@ -64,7 +64,7 @@ jobs:
         run: cp ./system/etc/Changelog.txt ${{ github.workspace }}/Changelog.txt
         working-directory: ${{ github.workspace }}/temp/crdroid/extracted/system
 
-      - name: RM temp data
+      - name: Remove temp directory
         run: rm -r temp
         working-directory: ${{ github.workspace }}
 
@@ -74,7 +74,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "Update Changelog"
-      - name: Push changes to changelog branch
+      - name: Push Changelog to GitHub
         uses: ad-m/github-push-action@master
         with:
           branch: main
