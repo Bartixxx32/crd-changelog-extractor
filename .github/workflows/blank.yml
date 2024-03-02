@@ -1,0 +1,82 @@
+name: Extract Changelog
+
+on:
+  workflow_dispatch:
+    inputs:
+      download_url:
+        description: 'Download URL'
+        required: true
+
+jobs:
+  extract-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+
+      - name: Mkdir temp
+        run: mkdir temp
+        working-directory: ${{ github.workspace }}
+
+      - name: Install aria2
+        run: sudo apt-get update && sudo apt-get install -y aria2
+
+      - name: Download crdroid.zip with aria2
+        run: aria2c -x 16 -s 16 ${{ github.event.inputs.download_url }} -o crdroid.zip
+        working-directory: ${{ github.workspace }}/temp
+
+      - name: Unzip crdroid.zip
+        run: unzip crdroid.zip -d ./crdroid
+        working-directory: ${{ github.workspace }}/temp
+
+      - name: Remove crdroid.zip
+        run: rm -r crdroid.zip
+        working-directory: ${{ github.workspace }}/temp
+
+      - name: Download payload dumper with aria2
+        run: aria2c -x 16 -s 16 https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz
+        working-directory: ${{ github.workspace }}/temp/crdroid
+
+      - name: Extract payload dumper
+        run: tar -xvzf payload-dumper-go_1.2.2_linux_amd64.tar.gz
+        working-directory: ${{ github.workspace }}/temp/crdroid
+
+      - name: Remove payload dumper tar.gz
+        run: rm -r payload-dumper-go_1.2.2_linux_amd64.tar.gz
+        working-directory: ${{ github.workspace }}/temp/crdroid
+
+      - name: Dump payload
+        run: ./payload-dumper-go -o extracted -p system payload.bin
+        working-directory: ${{ github.workspace }}/temp/crdroid
+
+      - name: Extract system.img
+        run: 7z x system.img -o./system
+        working-directory: ${{ github.workspace }}/temp/crdroid/extracted
+
+      - name: Display Changelog
+        run: cat ./system/etc/Changelog.txt
+        working-directory: ${{ github.workspace }}/temp/crdroid/extracted/system
+
+      - name: Copy Changelog to main workspace directory
+        run: cp ./system/etc/Changelog.txt ${{ github.workspace }}/Changelog.txt
+        working-directory: ${{ github.workspace }}/temp/crdroid/extracted/system
+
+      - name: RM temp data
+        run: rm -r temp
+        working-directory: ${{ github.workspace }}
+
+      - name: Commit files
+        run: |
+          git add .
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Update Changelog"
+      - name: Push changes to changelog branch
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          directory: ./
+          github_token: ${{ secrets.GITHUB_TOKEN }}
