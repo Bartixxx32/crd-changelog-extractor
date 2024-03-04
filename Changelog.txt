@@ -1,23 +1,137 @@
 ====================
-     03-02-2024
+     03-04-2024
 ====================
 
+   * art
+acca13a skip "speed"-optimized packages at an earlier dexopt stage
+
+   * build/make
+a2df28f Merge pull request #50 from kondors1995/14.0
+
    * external/chromium-webview/patches
-b38c6ca Set android.ext.adservices as optionally used lib
+864d156 Revert "Set android.ext.adservices as optionally used lib"
+d984db6 Begone, adservices
+
+   * external/chromium-webview/prebuilt/arm
+05a960b Rebuild arm Chromium Webview to remove adservices
+
+   * external/chromium-webview/prebuilt/arm64
+417dec3 Rebuild arm64 Chromium Webview to remove adservices
+
+   * external/chromium-webview/prebuilt/x86
+5e4902f Rebuild x86 Chromium Webview to remove adservices
+
+   * external/chromium-webview/prebuilt/x86_64
+fb4141f Rebuild x86_64 Chromium Webview to remove adservices
+
+   * frameworks/av
+64beb2cb Merge pull request #41 from InterstellarUI/14.0
+
+   * frameworks/base
+a4286295 SystemUI: Fix QS tile dialog background color
+397f813a don't skip AOT compilation of apps that weren't recently used
+85167cd3 OverlayManagerService: add a new thread to handle user receiver
+8358ff7d Remove redundant broadcasts when adjusting volume on single volume devices
+036ce594 Fix the bug of system app failing to load rros
+7359af88 IME attach to App should consider that letterboxed window
+b736f3ef PixelPropsUtils: Update spoof packages
+dfcab804 core: Gracefully handle unregistering of unregistered receivers/services
+
+   * kernel/oneplus/sm8150
+98fcdaa57 oneplus7: Enable IP_NF_TARGET_TTL and IP6_NF_TARGET_HL
+8f10c6965 oneplus7: Enable Wireguard module
+
+   * packages/apps/Dialer
+0209c7d New Crowdin updates (#103)
+
+   * packages/apps/Launcher3
+a70a4c014 New Crowdin updates (#404)
+
+   * packages/apps/SetupWizard
+0c2ff7c SetupWizard: Bring it on our side
+83e109c SetupWizard: Use correct updater package
+56cf488 Ship as crDroid based on LOS
+
+   * toolchain/pgo-profiles
+f0cd478 Merge pull request #3 from SOVIET-ANDROID/14.0
+
+   * vendor/lineage
+0455825 crdroid: Bump to version 10.2
+7bff968 crdroid: Build BatteryStatsViewer
+96baf36 crdroid: Update clone apps exemption list
+67aa737 crdroid: Avoid cloning default launcher
+bcaad08 crdroid: Update clone exemption list
+e77d0d7 crdroid: Add preinstalled package list to stop auto cloning
+36dfd33 crdroid: Enable Global ThinLTO flag
+cf94204 crdroid: Disable lockscreen live wallpaper
+49a4871 overlay: Update clock plugin list
+78ad7db device_config: Enable Cloned App
+dd2b19e overlay: Use google-sans for remaining font configs
+4d35c6a crdroid: Build OmniJaws service
+f1b5437 crdroid: Switch to AOSPA's face unlock implementation
+49ab54f overlay: Set more configs from pixel device
+c11253d common: Allow OTA downgrade regardless build type
+aa95941 common: Inherit pixel-fw when available
+3615bfe overlay: Allow telephony stack and components to receive un-sanitized ServiceState entries
+13d3a78 Fix changelog generation after repo tool update
+9c60d9e crdroid: Disable bazel for new clang
+cb5ec82 crdroid: Generate OTA json at build time
+dd23171 roomservice: get me some crDroid
+d480b48 charger: Switch from LineageOS Teal to crDroid Blue
+72ecb0e crdroid: Disable ABI checks
+3e66f1e soong: Add CAMERA_NEEDS_CLIENT_INFO_LIB{_OPLUS}
+9b9dcff soong: Add support to set vendor tag with client package name
+1a7f485 overlay: Enable app-cloning feature in Settings
+209efdd crdroid: Compile GameSpace
+c067678 overlay: Settings: Show memory usage in app info
+d69268f overlay: Set components from pixel device
+b7e51eb overlay: Enable QR Code scanner on Lock Screen
+974261a crdroid: Inherit several Android Go configurations
+1436d99 crdroid: Speed profile services and wifi-service to reduce RAM and storage
+5b7611a overlay: Add tethering to location exemption
+c163d86 overlay: Add SystemUI to location extra packages
+be38e98 overlay: Add OmniJaws to location extra packages
+e925d05 overlay: Allow new SystemUI clocks
+31a00ea overlay: Offload WM shell to another thread
+a2e0d52 crdroid: Update Pixel props
+cfd6dc8 common: Enable R8 optimizations for system_server and SystemUI
+12f0d5b crdroid: Minimize debug info
+69600c8 overlay: Update SettingsProvider defaults
+055a1f1 config: Properly disable blur on app launch
+a44af73 apns: Update mobily APN for prepaid connection
+248ec4d config: Cleanup and update common props from Pixel
+81676fc config: Optimize Launcher3 and Settings for speed
+b4366d7 build: Override host metadata
+1da67d9 apns: Grameenphone uses APN 'gpinternet'
+39400d6 Revert "overlay: Default to Seedvault backup transport"
+1a92d43 crdroid: Drop custom adb drawable
+861b196 crdroid: Clean up wallpaper overlay
+2f4d94d crdroid: Moved bootanimation to addons
+4a49d4e crdroid: Remove packages moved to addons
+e502435 build: Ship as crDroid based on LOS
+71e136e crdroid: Remove Trebuchet packages
+78c79a7 crdroid: Add changelog script
+
+====================
+     03-03-2024
+====================
 
    * frameworks/base
 8f2d67bd New Crowdin updates (#1076)
 109be67b PixelPropsUtils: Update Spoof fingerprint (#1078)
 
+   * packages/apps/SetupWizard
+112f926 fixup! Remove unused colors
+
    * packages/apps/crDroidSettings
 3bb46a7 New translations (#1129)
 
 ====================
-     03-01-2024
+     03-02-2024
 ====================
 
    * external/chromium-webview/patches
-6dfd6e6 Update Chromium Webview to 122.0.6261.90
+b38c6ca Set android.ext.adservices as optionally used lib
 
    * external/chromium-webview/prebuilt/arm
 64ab072 Update Chromium Webview arm prebuilt to 122.0.6261.90
@@ -31,7 +145,17 @@ a97397a Update Chromium Webview x86 prebuilt to 122.0.6261.90
    * external/chromium-webview/prebuilt/x86_64
 2bfbe2e Update Chromium Webview x86_64 prebuilt to 122.0.6261.90
 
+   * hardware/qcom-caf/sdm845/audio
+6584f9dca audio_amplifier: Change the enable amplifier function location
+1bdcf072f hal: Support the audio amplifier hook
+bfe4e281b hal: Use correct mixer element size when setting channel map
+
    * packages/apps/Aperture
+efed05d Aperture: Use smooth zoom for logical camera switch button
+fb2fb35 Aperture: QrImageAnalyzer: Fix views interaction on background thread
+e90283e Aperture: Reset zoom ratio on current cam click
+5b6e869 Aperture: Use the new ZoomGestureDetector
+9f443d6 Aperture: Import ZoomGestureDetector
 e5ea46c Aperture: Reformat code
 ea781be Aperture: Move camera manager to the view model
 4831db5 Aperture: Extract overlay configuration into a new class
@@ -42,14 +166,24 @@ e747a22 Aperture: Rework gallery button handling
 d0a5228 Aperture: Bump gradle-generatebp to v1.7
 
    * packages/apps/Glimpse
+e5d3f8f Glimpse: Enable scrollbar for bottom sheet horizontal scroll view
 11e5d1f Glimpse: Bump gradle-generatebp to v1.7
 
+   * packages/apps/SetupWizard
+2b605d1 welcome: Use a separate string for work profile start
+db86c22 Remove unused View
+b69c30c Remove unused colors
+f3d2943 Remove unused import
+
 ====================
-     02-29-2024
+     03-01-2024
 ====================
 
    * art
 835339d Speed up GraphChecker::VisitInstruction
+
+   * external/chromium-webview/patches
+6dfd6e6 Update Chromium Webview to 122.0.6261.90
 
    * frameworks/base
 e2e48506 Ringtone picker to handle RESULT_CANCELED from Add ringtone
@@ -57,7 +191,6 @@ e2e48506 Ringtone picker to handle RESULT_CANCELED from Add ringtone
    * hardware/oplus
 4818bbb sepolicy: qti: Allow sensor HAL to read ALS calibration files
 650df9c sepolicy: Remove als_correction_service sepolicy
-86bcafb sepolicy: label vendor.powerhal.* props
 
    * kernel/oneplus/sm8150
 07c30652d power: smb5-lib: Fix race conditions for typec power role
@@ -65,28 +198,29 @@ e2e48506 Ringtone picker to handle RESULT_CANCELED from Add ringtone
 5c9db2c86 oplus_charger: treat Not Charging as Discharging for AOSP
 2d6522747 power: oplus_charger: Fix slow charge while screen is on
 
+   * packages/apps/Settings
+6ab65dd Revert "Finish HomepageActivity when it's not the root of a task and not singleTask."
+
+   * vendor/lineage
+fccfeff config: Fix build when WITH_SU is set
+
+====================
+     02-29-2024
+====================
+
+   * build/make
+edb1595 use "speed-profile" compiler filter for boot-after-ota dexopt
+0635a1a always use speed mode ahead-of-time compilation
+
+   * hardware/oplus
+86bcafb sepolicy: label vendor.powerhal.* props
+
    * packages/apps/Aperture
 3c9a0c0 Aperture: Reformat code
 958af00 Aperture: Update icons from Material Icons
 78db13a Aperture: Implement screen flash
 3cfe9a0 Aperture: Remove RED_EYE mentions
 f3fbb59 Aperture: Use `onCaptureStarted()` for shutter sound and UI update
-
-   * packages/apps/Settings
-6ab65dd Revert "Finish HomepageActivity when it's not the root of a task and not singleTask."
-
-   * packages/apps/TvSettings
-f08a15d8 Revert "Putting device into pairing mode should time out after awhile"
-75752228 Add ethernet check to initial network setup
-
-====================
-     02-28-2024
-====================
-
-   * frameworks/base
-13d9ff70 Fix uninstall for all users
-d9fd906e Don't skip proess group creation for system_server
-ca15f68f Fix unknown sources app install confirmation
 
    * packages/apps/Dialer
 4994d2c overlay: Change vvm_type_vvm3_mvno to vvm_type_vvm3
@@ -120,6 +254,28 @@ edd46b8 Dialer: Make recording names sortable
 7e3c562 Dialer: Enable call recording for all
 a34cd14 Dialer: Remove unused drawable declaration
 
+   * packages/apps/SetupWizard
+ab27e60 Don't disable mobile data, AOSP has props for this
+
+   * packages/apps/TvSettings
+f08a15d8 Revert "Putting device into pairing mode should time out after awhile"
+75752228 Add ethernet check to initial network setup
+
+   * vendor/lineage
+fc39d90 Disable mobiledata by default with sys prop
+
+====================
+     02-28-2024
+====================
+
+   * frameworks/base
+13d9ff70 Fix uninstall for all users
+d9fd906e Don't skip proess group creation for system_server
+ca15f68f Fix unknown sources app install confirmation
+
+   * toolchain/pgo-profiles
+ac7848f Refreshed afdo profiles drop from ZP1A.240209.x
+
 ====================
      02-27-2024
 ====================
@@ -132,6 +288,9 @@ af25300 Merge pull request #47 from kondors1995/jemaloc
 
    * build/soong
 5472cd91 Merge pull request #20 from kondors1995/jemalloc
+
+   * device/oneplus/sm8150-common
+6ef9261 Revert "sm8150-common: Include vendor/debugfs.config"
 
    * device/qcom/sepolicy_vndr/legacy-um
 a75bf824 qva: Label qcom,battery_charger extcon
@@ -147,26 +306,6 @@ c9d14a0b Check for Location Feature and GNSS HAL Support
 
    * frameworks/native
 f67fc2234 Merge pull request #18 from kondors1995/14.0
-
-   * packages/apps/Dialer
-0395e02 Dialer: Provide proper margin to back icon
-
-   * system/core
-cb30ffc1 Merge pull request #17 from kondors1995/14.0
-
-   * toolchain/pgo-profiles
-022bfb4 Merge pull request #2 from SOVIET-ANDROID/14.0
-
-====================
-     02-26-2024
-====================
-
-   * device/oneplus/sm8150-common
-6ef9261 Revert "sm8150-common: Include vendor/debugfs.config"
-
-   * frameworks/base
-586e88e7 Revert "KeyStore: Update local attestation spoofing"
-b2a2029d Revert "PixelPropUtils: Fix bootloader spoofing"
 
    * kernel/oneplus/sm8150
 618652c33 oneplus7: Disable PAGE_OWNER and regenerate config
@@ -193,10 +332,8 @@ c7d19eec9 drivers: clk: gpucc-sm{6,7,8}150: Specify sync probe for gcpu_cc-sm{6,
 164b76631 drivers: clk: videocc-sm{6,7,8}150: Specify sync probe for video_cc-sm{6,7,8}150
 7a2c0c1c8 staging: Update KernelSU to 0.8.1
 
-   * packages/apps/Aperture
-82563eb Aperture: Update to API 34
-
    * packages/apps/Dialer
+0395e02 Dialer: Provide proper margin to back icon
 8ecfdb9 Dialer: Replace image- with vector drawables
 499c9cc Dialer: Remove a few unused drawables
 c34e08e Dialer: Use a static symbol for the incall status bar icon
@@ -204,17 +341,14 @@ c34e08e Dialer: Use a static symbol for the incall status bar icon
 e6a4778 Dialer: Increase icon size for the end call button
 746c48c Dialer: Update icons with new Material Symbols
 
-   * packages/apps/Eleven
-60c5feb Eleven: Postpone initializing the queue until after boot
+   * system/core
+cb30ffc1 Merge pull request #17 from kondors1995/14.0
 
-   * packages/apps/Recorder
-e2b9756 Recorder: Make it REUSE compliant
-
-   * packages/apps/TvSettings
-fcd6c6ec Fix UI glitch on USB debugging toggled
+   * toolchain/pgo-profiles
+022bfb4 Merge pull request #2 from SOVIET-ANDROID/14.0
 
 ====================
-     02-25-2024
+     02-26-2024
 ====================
 
    * device/lineage/atv
@@ -224,7 +358,53 @@ e7f731a Disable ABI check popup
 96df4b1 sm8150-common: init.trget: Remove vendor.lowi service (sscrpcd)
 
    * frameworks/base
+586e88e7 Revert "KeyStore: Update local attestation spoofing"
+b2a2029d Revert "PixelPropUtils: Fix bootloader spoofing"
 6d813ccd PixelPropUtils: Fix bootloader spoofing
+
+   * packages/apps/Aperture
+82563eb Aperture: Update to API 34
+
+   * packages/apps/Eleven
+60c5feb Eleven: Postpone initializing the queue until after boot
+
+   * packages/apps/Recorder
+e2b9756 Recorder: Make it REUSE compliant
+
+   * packages/apps/SetupWizard
+95cf350 SetupWizard: Update backup page description
+ee01046 Match U setupdesign dark theme
+965cd0c Specify theme when launching external activities
+ec05005 SetupWizard: Make it REUSE compliant
+1db317b Remove old tests
+feadacc Cleanup exit code
+fd0fdb8 Fix various java warnings
+7664461 Reformat code
+f609cd2 SetupWizard: Remove unused resources
+9e8aa8c SetupWizard: skip missing subactivities
+ed1a968 Revamp outro animation
+63bbec0 Only finish Setup Wizard Activity when fully done
+f58c0f4 Update deprecated code
+83338c4 Consolidate PhoneMonitor into SetupWizardUtils
+51fde0a Automated code cleanup + copyright update
+bd92956 SetupWizard: Remove unused strings
+973660d Optimize imports
+f515276 Launch restore step early
+554f635 SetupWizard: Add step for changing theme
+04c9f46 Use WizardManagerHelper NEXT intent and result codes
+86ed621 Launch Settings activities for lockscreen and biometrics setup
+
+   * packages/apps/TvSettings
+fcd6c6ec Fix UI glitch on USB debugging toggled
+
+   * vendor/lineage
+77226ca config: Define SetupWizard theme properties
+
+====================
+     02-25-2024
+====================
+
+   * frameworks/base
 4a36c0d3 Merge pull request #1073 from kondors1995/14.0
 
    * packages/apps/Aperture
@@ -249,6 +429,9 @@ e8f5b1c Recorder: Equally space bottom buttons on main screen
 f4f2a9f Recorder: Redrop icons
 bd8726e Recorder: Migrate to Material3 theme
 1cf61d7 Recorder: Get rid of is_day
+
+   * packages/modules/Connectivity
+932e0b199 Merge 'lineage-21.0' into 14.0
 
    * packages/services/OmniJaws
 3c59021 OmniJaws: Add 3 more icon packs
@@ -280,9 +463,6 @@ bc6c4815c SF: Enable expensive rendering for blurs
 ba6510f Dialer: Fix In-Call vibrations
 328c853 Dialer: Fix sound settings not sticking
 
-   * packages/modules/Connectivity
-932e0b199 Merge 'lineage-21.0' into 14.0
-
    * system/core
 231bc8ca libprocessgroup: Use pid_t consistently for TIDs
 baa70e3d libprocessgroup: Reject JoinCgroup actions for v2 controllers
@@ -298,69 +478,4 @@ b10a604b libprocessgroup: Remove isolated UID cgroup directories
 6d80f96f Restore I/O priority support
 730334c5 tasks_profiles: Use top-app cpuset for surfaceflinger
 295d088a init: Throttle background group utilization at 5%
-
-====================
-     02-23-2024
-====================
-
-   * device/oneplus/sm8150-common
-715793c Revert "sm8150-common: enable blur"
-fe6f48c sm8150-common: OPlusExtras: Drop Game Mode
-8cfd859 sm8150-common: OPlusExtras: Drop Power Efficient Workqueue
-
-   * frameworks/base
-89f7b270 ConfigurationController: Prevent app crash caused by null configuration
-50b4ca6f ActivityThread: Resolve runtime exception when pausing an activity
-952514ad WindowManagerService: Fix IndexOutOfBoundsException when traversing AppFreezeListener
-c66a60d6 CEC: correct frameworks physicalAddress parsing
-d2f97977 services: Disable automatic system server heap dumps by default
-6f1af168 KeyStore: Update local attestation spoofing
-
-   * prebuilts/tools-lineage
-3917c80 Import `yes.pl` from https://github.com/mubaris/yes
-
-====================
-     02-22-2024
-====================
-
-   * device/oneplus/sm8150-common
-8bc788a sensors: The default max_brightness is the same as in the kernel
-5700ca2 sm8150-common: Allow toolbox to terminate itself
-fe24e07 sm8150-common: init: Set-up and enable ZRAM swap
-6ebbf0e sm8150-common: init: Clean-up oplus scripts
-
-   * frameworks/av
-c6c592f1 audio: Check MODIFY_AUDIO_ROUTING permission for per-app volume
-
-   * frameworks/base
-d676703c Fix judgment logic of DisplayDeviceConfig#loadSdrHdrRatioMap.
-09a9028a Make sure we'll always kill process group
-af4f9cb0 Reduce some redundant steps
-c6865bbb fixup! ScreenOffAnimation: Fix system animation disable check
-
-   * hardware/oplus
-7f6f5da sepolicy: Fix avc denials related to sde_crtc
-
-   * kernel/oneplus/sm8150
-64ee8e2d5 fs: sync: set proper permissions for fsync_enabled
-9e82972be fs: sync: Avoid calling fdget without fdput
-9d2a0cff0 Added fsync on/off support.
-38b3dbdeb arm64: dts: sm8150: Disable broken IRQ detection
-4a362fc85 ARM64: dts: Correct node name of msm-therm
-c970939bc arm64: dts: sm8150: Force GPU idle timeout to 58 ms
-abb081ab0 arm64: dts: vendor: Remove unused conflicting disp_rdump_memory region.
-c801975c9 arm64: dts: sm8150: Power off DSI PHY during idle PC
-992cacb14 qseecom: Change in buffer sharing mechanism in qseecom
-a220ea101 aw8697: Reduce logspam
-ccae52808 aw8697: add haptic level adjustment
-bbcb18701 oplus_chg: charger: Implement usb2 fast charge mode
-
-   * packages/apps/Recorder
-8372a71 Request new FOREGROUND_SERVICE_MICROPHONE permission
-2fde4cf Don't export context-registered broadcast receivers
-36e8ee5 Bump compile & target Sdk versions to 34
-
-   * packages/apps/Seedvault
-7e214f7 Merge branch 'android14' of https://github.com/seedvault-app/seedvault into lineage-21.0
-a050e73 Update SetupWizard dark theme for U
 
