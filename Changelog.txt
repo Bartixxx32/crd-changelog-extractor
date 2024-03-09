@@ -1,9 +1,148 @@
 ====================
-     03-04-2024
+     03-08-2024
 ====================
 
-   * art
-acca13a skip "speed"-optimized packages at an earlier dexopt stage
+   * frameworks/base
+edf501af Revert "biometrics: Fix udfps races"
+3c03bee9 Revert "SystemUI: Fix default UDFPS animation offset"
+
+   * frameworks/native
+e333363cb services: Pin surfaceflinger to display cpuset
+835e68d8c SF: Limit frame rate overrides to 60 Hz if touch boost is disabled
+09f6a55c1 SF: Prevent rounding error in Fps arithmetic
+c95e83dd8 SF: update frameRateOverride list when policy changes
+60e163baf SF: use drawing state for Winscope
+b2b86561c Fix setMatrix failed issue when rotating
+99a1712f5 Remove extra layering of HDR capabilities on top of HWC
+77ec23379 Assign previous release fence to previous frame ID
+bfb8ec60e Remove redundant calls and correct some comments.
+7103bf526 SF: remove the redundant variable on updateCursorAsync.
+e265e4c67 sf: Optimize doDump function in SurfaceFlinger
+c8a5325d4 Remove redundant call in Layer's constructor.
+
+   * hardware/oplus
+ed527df sepolicy: Replace isolated_app with isolated_app_all
+
+   * system/core
+a0f99cd7 Merge pull request #20 from SigmaDroid-Project/uclamp_revert
+
+====================
+     03-07-2024
+====================
+
+   * frameworks/av
+63c887d4 Camera: Bump up the offline switch capture request timeout
+
+   * frameworks/base
+7f075982 biometrics: Fix udfps races
+2616de77 Revert "SystemUI: Update udfps animation position on sensor props change"
+e8a9b7f9 Catch IllegalArgumentException as it might indicate corrupted packages.xml
+d5726e79 Prevent error message on svc power reboot
+16543635 Avoid string and varargs allocations for preconditions checks in hot methods
+23573f7d HwParcel: Remove ambiguous nullability annotation.
+
+   * frameworks/native
+a59d2c04e Fix "Abnormal while playing netflix in PIP mode"
+
+   * hardware/oplus
+8b5fb19 sepolicy: qti: Allow sensor HAL to read ALS calibration files
+7299124 sepolicy: Remove als_correction_service sepolicy
+3b57f0f sepolicy: qti: Label vendor.powerhal.* props
+
+   * kernel/oneplus/sm8150
+5b1371ee7 power: oplus: Remove the duplicate includes
+c69053dc6 oneplus7: Enable IP_NF_TARGET_TTL and IP6_NF_TARGET_HL
+5d6166bee oneplus7: Enable Wireguard module
+54732cb99 power: smb5-lib: Fix race conditions for typec power role
+b07d75197 power: smb-lib: Force suspend when cable out.
+bfc05dba5 power: oplus_charger: Fix slow charge while screen is on
+26843eb5b fuse: return -ECONNABORTED on /dev/fuse read after abort
+5e2769479 fs: fuse: account fuse_inode slab memory as reclaimable
+e7b2bc0f5 driver: usb: dwc3: dwc3-of-simple: Specify sync probe for dwc3-of-simple
+3cb83fe5a driver: usb: dwc3: dwc3-msm: Specify sync probe for msm-dwc3 driver.
+c91a59f5b drivers: usb: dwc3: core: Specify sync probe for dwc3 driver
+e11a84c1d drivers: iommu: qcom_iommu: Specify sync probe for qcom-iommu
+035aa1e8d drivers: iommu: msm_iommu: Specify sync probe for msm_iommu driver
+e9df85127 drivers: iommu: arm-smmu: Specify sync probe for qsmmuv500-tbu
+55897c0f0 drivers: iommu: arm-smmu-v3: Specify sync probe for arm-smmu-v3 driver
+974528dfd drivers: i2c: i2c-core-base: Specify sync probe for dummy i2c driver
+b9122ff4d drivers: crypto: msm: qcrypto: Specify sync probe for qcrypto driver
+b38fe775c drivers: crypto: msm: qcedev: Specify sync probe for qce driver
+e3e4b39f1 drivers: crypto: ice: Specify sync probe for qcom_ice driver
+d1e27bf51 drivers: gpu: drm: sde_sb: Specify sync probe for sde_wb
+a66f966d9 drivers: gpu: drm: msm_smmu: Specify sync probe for msmdrm_smmu
+216b0fd7c drivers: dma: gpi: Specify sync probe for gpi_dma
+4776cf072 drivers: char: adsprpc: Specify sync probe for fastrpc
+ab7cf9126 asoc: msm-dai-q6-v2: Mark msm-dai-q6 drivers as sync probe.
+958f8ec70 drivers: clk: gcc-sm{6,7,8}150: Specify sync probe for gcc-sm{6,7,8}150
+fafbc7823 drivers: clk: gpucc-sm{6,7,8}150: Specify sync probe for gcpu_cc-sm{6,7,8}150
+24de0ec3d drivers: clk: videocc-sm{6,7,8}150: Specify sync probe for video_cc-sm{6,7,8}150
+6e0322626 staging: Update KernelSU to 0.8.1
+2551a667c fs: sync: set proper permissions for fsync_enabled
+5e8dc26f2 fs: sync: Avoid calling fdget without fdput
+55bcfb11c Added fsync on/off support.
+008ba5904 arm64: dts: sm8150: Disable broken IRQ detection
+b87a77316 ARM64: dts: Correct node name of msm-therm
+34def0514 arm64: dts: sm8150: Force GPU idle timeout to 58 ms
+4a1e5dc44 arm64: dts: vendor: Remove unused conflicting disp_rdump_memory region.
+65038df07 arm64: dts: sm8150: Power off DSI PHY during idle PC
+0e43dbfd1 qseecom: Change in buffer sharing mechanism in qseecom
+ea0b93829 aw8697: Reduce logspam
+b1b508030 aw8697: add haptic level adjustment
+c28236636 oplus_chg: charger: Implement usb2 fast charge mode
+2f3099d07 drm/msm/sde: Trigger panel reset after first kickoff on non-60 Hz
+00969e4f3 sched/tune: Increase the cgroup limit to 8
+7cbcef461 msm: camera: Fix EEPROM device handle leak.
+38f7a013e msm: rotator: Constify formats table
+64910b132 media/vidc/msm_venc: changes to improve quality
+82630e762 arm64: defconfig: Disable kernel lowmemorykiller
+92e406871 arm64: sm8150-v2: Boost DDR bus to 2133MHz
+1459e2cd5 Added KernelSU support in accordance with official recommendations.
+5e312ab32 drivers: kernelsu: Hardcode KSU_GIT_VERSION to tiann/KernelSU@1f42bba
+2f8de0eae staging: Added KernelSU 0.7.6 support
+37c6cb0d1 techpack: tfa98xx: Fix misleading indentation
+
+   * packages/apps/LineageParts
+98f4ab0 ChargingControl: Respect 24 hour locales in TimePicker
+
+   * system/vold
+6f0971f vold: Unmount StubVolume disks before unmounting EmulatedVolumes
+
+====================
+     03-06-2024
+====================
+
+   * device/oneplus/guacamole
+beb843a guacamole: Configure screen capture rect for ALS via sysprop
+
+   * device/oneplus/sm8150-common
+5cc1ca8 sm8150-common: Update ALS parameters paths
+27db458 sm8150-common: Re-implement ALS capture as AIDL service
+b8b90fd Revert "sm8150-common: Update battery info every second when device is charging"
+5a6deca sm8150-common: Disable hvdcp_opti deamon pps control
+6451d77 sm8150-common: Add missing hvdcp_opti
+ad9740a sm8150-common: Drop DT2W node from BoardConfig
+
+   * vendor/oneplus/sm8150-common
+beb202b sm8150-common: Add missing hvdcp_opti
+7c8eafc sm8150-common: Switch to power-libperfmgr
+
+====================
+     03-05-2024
+====================
+
+   * frameworks/base
+f2863991 SystemUI: Fix QS tile dialog background color
+
+   * frameworks/native
+2410babff Fix BatteryService enum inconsistent with BatteryManager
+
+   * system/core
+780d18c6 Revert "boost uclamp_min for loading modules in parallel"
+
+====================
+     03-04-2024
+====================
 
    * build/make
 a2df28f Merge pull request #50 from kondors1995/14.0
@@ -28,8 +167,6 @@ fb4141f Rebuild x86_64 Chromium Webview to remove adservices
 64beb2cb Merge pull request #41 from InterstellarUI/14.0
 
    * frameworks/base
-a4286295 SystemUI: Fix QS tile dialog background color
-397f813a don't skip AOT compilation of apps that weren't recently used
 85167cd3 OverlayManagerService: add a new thread to handle user receiver
 8358ff7d Remove redundant broadcasts when adjusting volume on single volume devices
 036ce594 Fix the bug of system app failing to load rros
@@ -38,8 +175,7 @@ b736f3ef PixelPropsUtils: Update spoof packages
 dfcab804 core: Gracefully handle unregistering of unregistered receivers/services
 
    * kernel/oneplus/sm8150
-98fcdaa57 oneplus7: Enable IP_NF_TARGET_TTL and IP6_NF_TARGET_HL
-8f10c6965 oneplus7: Enable Wireguard module
+6091c865f oneplus7: Disable external SoC control
 
    * packages/apps/Dialer
 0209c7d New Crowdin updates (#103)
@@ -188,16 +324,6 @@ f3d2943 Remove unused import
    * frameworks/base
 e2e48506 Ringtone picker to handle RESULT_CANCELED from Add ringtone
 
-   * hardware/oplus
-4818bbb sepolicy: qti: Allow sensor HAL to read ALS calibration files
-650df9c sepolicy: Remove als_correction_service sepolicy
-
-   * kernel/oneplus/sm8150
-07c30652d power: smb5-lib: Fix race conditions for typec power role
-50aaf4f57 power: smb-lib: Force suspend when cable out.
-5c9db2c86 oplus_charger: treat Not Charging as Discharging for AOSP
-2d6522747 power: oplus_charger: Fix slow charge while screen is on
-
    * packages/apps/Settings
 6ab65dd Revert "Finish HomepageActivity when it's not the root of a task and not singleTask."
 
@@ -212,8 +338,8 @@ fccfeff config: Fix build when WITH_SU is set
 edb1595 use "speed-profile" compiler filter for boot-after-ota dexopt
 0635a1a always use speed mode ahead-of-time compilation
 
-   * hardware/oplus
-86bcafb sepolicy: label vendor.powerhal.* props
+   * kernel/oneplus/sm8150
+db2d7943a oneplus7: Disable PAGE_OWNER and regenerate config
 
    * packages/apps/Aperture
 3c9a0c0 Aperture: Reformat code
@@ -258,6 +384,7 @@ a34cd14 Dialer: Remove unused drawable declaration
 ab27e60 Don't disable mobile data, AOSP has props for this
 
    * packages/apps/TvSettings
+dc2ebff5 fixup! Move openInEditMode from onViewCreated to onResume
 f08a15d8 Revert "Putting device into pairing mode should time out after awhile"
 75752228 Add ethernet check to initial network setup
 
@@ -275,207 +402,4 @@ ca15f68f Fix unknown sources app install confirmation
 
    * toolchain/pgo-profiles
 ac7848f Refreshed afdo profiles drop from ZP1A.240209.x
-
-====================
-     02-27-2024
-====================
-
-   * bionic
-5d04fd1a Merge pull request #17 from kondors1995/14.0
-
-   * build/make
-af25300 Merge pull request #47 from kondors1995/jemaloc
-
-   * build/soong
-5472cd91 Merge pull request #20 from kondors1995/jemalloc
-
-   * device/oneplus/sm8150-common
-6ef9261 Revert "sm8150-common: Include vendor/debugfs.config"
-
-   * device/qcom/sepolicy_vndr/legacy-um
-a75bf824 qva: Label qcom,battery_charger extcon
-19758ebf sepolicy_vndr: Update sepolicy for OTA AVC denials.
-
-   * frameworks/base
-c9d14a0b Check for Location Feature and GNSS HAL Support
-63ae87ab fixup! base: Add support for app lock
-482351b5 fixup! SystemUI: Follow light/dark theme in SplitShade Header
-464e75bc fixup! SystemUI: Show face icon in lockscreen if faceunlock is enabled
-6b744b6e fixup! base: Add ambient pulse notification
-522504b7 Merge pull request #1074 from pantah-dev/14.0
-
-   * frameworks/native
-f67fc2234 Merge pull request #18 from kondors1995/14.0
-
-   * kernel/oneplus/sm8150
-618652c33 oneplus7: Disable PAGE_OWNER and regenerate config
-314a97543 fuse: return -ECONNABORTED on /dev/fuse read after abort
-2cc9bdc01 fs: fuse: account fuse_inode slab memory as reclaimable
-b00b7e060 driver: usb: dwc3: dwc3-of-simple: Specify sync probe for dwc3-of-simple
-70ef6b9d6 driver: usb: dwc3: dwc3-msm: Specify sync probe for msm-dwc3 driver.
-3d0bc2a59 drivers: usb: dwc3: core: Specify sync probe for dwc3 driver
-4c289cca0 drivers: iommu: qcom_iommu: Specify sync probe for qcom-iommu
-a1ae790e8 drivers: iommu: msm_iommu: Specify sync probe for msm_iommu driver
-80c963369 drivers: iommu: arm-smmu: Specify sync probe for qsmmuv500-tbu
-42a7d9ecc drivers: iommu: arm-smmu-v3: Specify sync probe for arm-smmu-v3 driver
-e0d27bde9 drivers: i2c: i2c-core-base: Specify sync probe for dummy i2c driver
-c7eed97eb drivers: crypto: msm: qcrypto: Specify sync probe for qcrypto driver
-3a1971183 drivers: crypto: msm: qcedev: Specify sync probe for qce driver
-32b2b4783 drivers: crypto: ice: Specify sync probe for qcom_ice driver
-fc0b432a3 drivers: gpu: drm: sde_sb: Specify sync probe for sde_wb
-ba8ae3d1b drivers: gpu: drm: msm_smmu: Specify sync probe for msmdrm_smmu
-ff301cbaa drivers: dma: gpi: Specify sync probe for gpi_dma
-9115ab10d drivers: char: adsprpc: Specify sync probe for fastrpc
-23fb313ad asoc: msm-dai-q6-v2: Mark msm-dai-q6 drivers as sync probe.
-2bf0f7e7a drivers: clk: gcc-sm{6,7,8}150: Specify sync probe for gcc-sm{6,7,8}150
-c7d19eec9 drivers: clk: gpucc-sm{6,7,8}150: Specify sync probe for gcpu_cc-sm{6,7,8}150
-164b76631 drivers: clk: videocc-sm{6,7,8}150: Specify sync probe for video_cc-sm{6,7,8}150
-7a2c0c1c8 staging: Update KernelSU to 0.8.1
-
-   * packages/apps/Dialer
-0395e02 Dialer: Provide proper margin to back icon
-8ecfdb9 Dialer: Replace image- with vector drawables
-499c9cc Dialer: Remove a few unused drawables
-c34e08e Dialer: Use a static symbol for the incall status bar icon
-8ed49b7 Dialer: Kill the Sprint HD call icon
-e6a4778 Dialer: Increase icon size for the end call button
-746c48c Dialer: Update icons with new Material Symbols
-
-   * system/core
-cb30ffc1 Merge pull request #17 from kondors1995/14.0
-
-   * toolchain/pgo-profiles
-022bfb4 Merge pull request #2 from SOVIET-ANDROID/14.0
-
-====================
-     02-26-2024
-====================
-
-   * device/lineage/atv
-e7f731a Disable ABI check popup
-
-   * device/oneplus/sm8150-common
-96df4b1 sm8150-common: init.trget: Remove vendor.lowi service (sscrpcd)
-
-   * frameworks/base
-586e88e7 Revert "KeyStore: Update local attestation spoofing"
-b2a2029d Revert "PixelPropUtils: Fix bootloader spoofing"
-6d813ccd PixelPropUtils: Fix bootloader spoofing
-
-   * packages/apps/Aperture
-82563eb Aperture: Update to API 34
-
-   * packages/apps/Eleven
-60c5feb Eleven: Postpone initializing the queue until after boot
-
-   * packages/apps/Recorder
-e2b9756 Recorder: Make it REUSE compliant
-
-   * packages/apps/SetupWizard
-95cf350 SetupWizard: Update backup page description
-ee01046 Match U setupdesign dark theme
-965cd0c Specify theme when launching external activities
-ec05005 SetupWizard: Make it REUSE compliant
-1db317b Remove old tests
-feadacc Cleanup exit code
-fd0fdb8 Fix various java warnings
-7664461 Reformat code
-f609cd2 SetupWizard: Remove unused resources
-9e8aa8c SetupWizard: skip missing subactivities
-ed1a968 Revamp outro animation
-63bbec0 Only finish Setup Wizard Activity when fully done
-f58c0f4 Update deprecated code
-83338c4 Consolidate PhoneMonitor into SetupWizardUtils
-51fde0a Automated code cleanup + copyright update
-bd92956 SetupWizard: Remove unused strings
-973660d Optimize imports
-f515276 Launch restore step early
-554f635 SetupWizard: Add step for changing theme
-04c9f46 Use WizardManagerHelper NEXT intent and result codes
-86ed621 Launch Settings activities for lockscreen and biometrics setup
-
-   * packages/apps/TvSettings
-fcd6c6ec Fix UI glitch on USB debugging toggled
-
-   * vendor/lineage
-77226ca config: Define SetupWizard theme properties
-
-====================
-     02-25-2024
-====================
-
-   * frameworks/base
-4a36c0d3 Merge pull request #1073 from kondors1995/14.0
-
-   * packages/apps/Aperture
-a1415cd Aperture: Tie text classification thread to lifecycle
-
-   * packages/apps/Recorder
-730eb39 Recorder: Inherit aapt_version_code_defaults
-027cb4c Recorder: Drop allowBackup=false
-e188969 Recorder: Reformat code
-2418712 Recorder: Remove dead code
-c05365f Recorder: Redo edge-to-edge configuration
-d9b0a6e Recorder: Add support for coarse location permission
-ac902eb Recorder: Remove unneeded flags from manifest
-c93db4d Recorder: Enable back gestures
-27aa4f7 Recorder: Use better view resource IDs
-c87c490 Recorder: Observe dynamic colors changes
-1a56914 Recorder: Add some null checks
-b563503 Recorder: Reformat manifest
-e8f5b1c Recorder: Equally space bottom buttons on main screen
-829dca7 Recorder: Rework the settings dialog
-8eb0ae2 Recorder: Update gradle-generatebp to v1.6
-f4f2a9f Recorder: Redrop icons
-bd8726e Recorder: Migrate to Material3 theme
-1cf61d7 Recorder: Get rid of is_day
-
-   * packages/modules/Connectivity
-932e0b199 Merge 'lineage-21.0' into 14.0
-
-   * packages/services/OmniJaws
-3c59021 OmniJaws: Add 3 more icon packs
-5ede14c OmniJaws: Fix weather client scattered clouds night icon
-1c57f94 OmniJaws: we dont need wakelock JobSchdeuler does this for us
-bbb33e0 OmniJaws: switch to getCurrentLocation API
-cde5e4e Omnijaws: Rework weather conditions for MET Norway provider
-ef6a7f6 OmniJaws: Fix weather icons for Scattered & Overcast clouds on OWM for Google icon pack
-3c0f104 OmniJaws: Fix scattered clouds night icon on OWM provider
-5eaba6a OmniJaws: add vectorized Weather client icons
-
-====================
-     02-24-2024
-====================
-
-   * frameworks/base
-846f5088 Reapply "Adapt to libprocessgroup API changes for polling on cgro..."
-eae448ed Don't add StageChangeRecord when stage task moves to back
-fe0e6659 Fix cold-lauch Activity Embeded apps flash black.
-10577142 Handle mismatch when add worng userid sencodary dex path
-e483a0bf Revert "add workaround for dynamic code logging system_server crash"
-e8dab642 Revert "Fix AlarmManager high CPU issue"
-87cc1e31 Fix multiuser freeze-kills
-
-   * frameworks/native
-bc6c4815c SF: Enable expensive rendering for blurs
-
-   * packages/apps/Dialer
-ba6510f Dialer: Fix In-Call vibrations
-328c853 Dialer: Fix sound settings not sticking
-
-   * system/core
-231bc8ca libprocessgroup: Use pid_t consistently for TIDs
-baa70e3d libprocessgroup: Reject JoinCgroup actions for v2 controllers
-20f5bb82 libprocessgroup: Make a log message more detailed
-b8214a43 libprocessgroup: Use pid_t consistently for PIDs
-cb07e43e libprocessgroup: Use cgroup.kill
-34b5c4dc Reapply "libprocessgroup: Poll on cgroup.events"
-2a558f1a Make RemoveCgroup idempotent
-726455cf libprocessgroup: Use uid_t consistently for UIDs
-83f5e183 libprocessgroup: UIDs in linux are unsigned
-b10a604b libprocessgroup: Remove isolated UID cgroup directories
-2662a612 libprocessgroup: Stop services that have been migrated to another v2 cgroup
-6d80f96f Restore I/O priority support
-730334c5 tasks_profiles: Use top-app cpuset for surfaceflinger
-295d088a init: Throttle background group utilization at 5%
 
